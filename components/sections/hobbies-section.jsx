@@ -1,11 +1,18 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { motion } from "framer-motion"
-import { useState, memo } from "react"
-import Image from "next/image"
-import { Gamepad2, Swords, Scroll, Crosshair, ChevronDown, ChevronUp } from "lucide-react"
+import { motion } from "framer-motion";
+import { useState, memo } from "react";
+import Image from "next/image";
+import {
+  Gamepad2,
+  Swords,
+  Scroll,
+  Crosshair,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 
 // Animation variants
 const containerVariants = {
@@ -17,7 +24,7 @@ const containerVariants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -26,17 +33,11 @@ const itemVariants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 300, damping: 24 },
   },
-}
+};
 
 const HobbyCard = memo(
-  ({
-    title,
-    description,
-    icon: Icon,
-    color,
-    children,
-  }) => {
-    const [isExpanded, setIsExpanded] = useState(false)
+  ({ title, description, icon: Icon, color, children }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
       <motion.div
@@ -44,10 +45,15 @@ const HobbyCard = memo(
         variants={itemVariants}
         whileHover={{ y: -5, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)" }}
       >
-        <div className="p-5 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+        <div
+          className="p-5 cursor-pointer"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${color}`}>
+              <div
+                className={`w-10 h-10 rounded-lg flex items-center justify-center ${color}`}
+              >
                 <Icon className="w-5 h-5 text-white" />
               </div>
               <h3 className="text-xl font-bold text-indigo-400">{title}</h3>
@@ -63,27 +69,39 @@ const HobbyCard = memo(
 
         <motion.div
           initial={false}
-          animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
+          animate={{
+            height: isExpanded ? "auto" : 0,
+            opacity: isExpanded ? 1 : 0,
+          }}
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
           <div className="p-5 pt-0 bg-gray-700 bg-opacity-50">{children}</div>
         </motion.div>
       </motion.div>
-    )
-  },
-)
+    );
+  }
+);
 
 function HobbiesSection() {
   return (
-    <motion.div className="text-white" variants={containerVariants} initial="hidden" animate="visible">
-      <motion.h2 className="text-3xl font-bold text-indigo-400 mb-6" variants={itemVariants}>
+    <motion.div
+      className="text-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h2
+        className="text-3xl font-bold text-indigo-400 mb-6"
+        variants={itemVariants}
+      >
         Hobbies & Interests
       </motion.h2>
 
       <motion.p className="text-lg mb-6" variants={itemVariants}>
-        When I'm not coding, I love to immerse myself in various hobbies that fuel my creativity and strategic thinking.
-        Here are a few of my favorite pastimes:
+        When I'm not coding, I love to immerse myself in various hobbies that
+        fuel my creativity and strategic thinking. Here are a few of my favorite
+        pastimes:
       </motion.p>
 
       <div className="space-y-4">
@@ -94,45 +112,49 @@ function HobbiesSection() {
           color="bg-purple-600"
         >
           <div className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-4 pt-5">
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">My D&D Experience:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  My D&D Experience:
+                </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-200">
                   <li>Dungeon Master for 7+ years</li>
                   <li>Created multiple homebrew campaigns</li>
                   <li>Specializing in narrative-driven adventures</li>
                   <li>Favorite classes to play: Wizard and Artificer</li>
-                  <li>Collector of hand-painted miniatures</li>
+                  <li>Collector of totally not too much dice</li>
+                  <li>Thinking of making a barbarian / sorcerer multiclass character</li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Current Campaigns:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Current Campaigns:
+                </h4>
                 <div className="space-y-2">
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Shadows of Elderheim</p>
+                    <p className="font-medium text-indigo-400">
+                      Rakktus Broken
+                    </p>
                     <p className="text-sm text-gray-300">
-                      DM for a long-running campaign set in a dark fantasy world where players navigate political
-                      intrigue and ancient mysteries.
+                      DM for a long-running campaign set in a dark fantasy world
+                      where players navigate political intrigue and ancient
+                      mysteries.
                     </p>
                   </div>
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Curse of Strahd</p>
+                    <p className="font-medium text-indigo-400">
+                      Mundus Madness
+                    </p>
                     <p className="text-sm text-gray-300">
-                      Player character: Alaric, a Chronurgy Wizard seeking to manipulate time to prevent a family
-                      tragedy.
+                      A long-running campaign set in a dark fantasy world
+                      where players navigate political intrigue and delt with complex ever-changing hostilities
                     </p>
                   </div>
+                  
                 </div>
               </div>
             </div>
-            <div className="relative h-40 md:h-60 w-full overflow-hidden rounded-lg">
-              <Image
-                src="/placeholder.svg?height=240&width=640"
-                alt="D&D game session with dice, character sheets and miniatures"
-                fill
-                className="object-cover"
-              />
-            </div>
+            
           </div>
         </HobbyCard>
 
@@ -145,29 +167,43 @@ function HobbiesSection() {
           <div className="space-y-4">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Favorite Genres:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Favorite Genres:
+                </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-200">
                   <li>RPGs (Western and JRPGs)</li>
                   <li>Strategy and 4X</li>
                   <li>Action-Adventure</li>
                   <li>Indie and Rogue-like</li>
-                  <li>Simulation</li>
+                  <li>Space / Simulation</li>
                 </ul>
 
-                <h4 className="text-teal-200 font-semibold mt-4 mb-2">Platforms:</h4>
+                <h4 className="text-teal-200 font-semibold mt-4 mb-2">
+                  Platforms:
+                </h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">PC</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Nintendo Switch</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">PlayStation 5</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Retro Consoles</span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    PC
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Nintendo Switch
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Xbox One
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Game Cube
+                  </span>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">All-Time Favorites:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  All-Time Favorites:
+                </h4>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center bg-gray-800 p-2 rounded">
-                    <span>The Witcher 3</span>
+                    <span>Star Citizen</span>
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <div className="flex justify-between items-center bg-gray-800 p-2 rounded">
@@ -175,22 +211,23 @@ function HobbiesSection() {
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <div className="flex justify-between items-center bg-gray-800 p-2 rounded">
-                    <span>Civilization VI</span>
+                    <span>Civilization V</span>
                     <span className="text-yellow-400">★★★★☆</span>
                   </div>
                   <div className="flex justify-between items-center bg-gray-800 p-2 rounded">
-                    <span>Legend of Zelda: BOTW</span>
+                    <span>Warhammer 40,000 - Rogue Trader</span>
                     <span className="text-yellow-400">★★★★★</span>
                   </div>
                   <div className="flex justify-between items-center bg-gray-800 p-2 rounded">
-                    <span>Hades</span>
+                    <span>Total War: Warhammer III</span>
                     <span className="text-yellow-400">★★★★☆</span>
                   </div>
                 </div>
               </div>
             </div>
             <p className="text-gray-300 italic">
-              "Currently exploring Elden Ring's latest DLC and diving into indie game development as a side project."
+              "Currently exploring the God of War series and diving into indie
+              game development as a side project."
             </p>
           </div>
         </HobbyCard>
@@ -204,55 +241,79 @@ function HobbiesSection() {
           <div className="space-y-4">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Play History:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Play History:
+                </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-200">
-                  <li>Playing since Theros block</li>
+                  <li>Playing since 2017</li>
                   <li>Commander enthusiast</li>
-                  <li>Draft and Sealed specialist</li>
-                  <li>Local game store tournament participant</li>
-                  <li>Card collector with complete sets of several expansions</li>
+                  <li>Local Tournement winner x2</li>
+                  <li>Local game store tournament winner x2</li>
+                  <li>Created 5 custom decks</li>
                 </ul>
 
-                <h4 className="text-teal-200 font-semibold mt-4 mb-2">Color Preferences:</h4>
+                <h4 className="text-teal-200 font-semibold mt-4 mb-2">
+                  Color Preferences:
+                </h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-blue-900 rounded-full text-sm">Blue</span>
-                  <span className="px-3 py-1 bg-green-900 rounded-full text-sm">Green</span>
-                  <span className="px-3 py-1 bg-gray-900 text-white rounded-full text-sm border border-gray-500">
-                    Colorless
+                  <span className="px-3 py-1 bg-black rounded-full text-sm">
+                    Black
                   </span>
                   <span className="px-3 py-1 bg-gradient-to-r from-blue-800 to-red-800 rounded-full text-sm">
                     Izzet
                   </span>
-                  <span className="px-3 py-1 bg-gradient-to-r from-green-800 to-blue-800 rounded-full text-sm">
-                    Simic
+                  <span className="px-3 py-1 bg-gray-900 text-white rounded-full text-sm border border-gray-500">
+                    Colorless
+                  </span>
+
+                  <span className="px-3 py-1 bg-blue-900 rounded-full text-sm">
+                    Blue
+                  </span>
+
+                  <span className="px-3 py-1 bg-green-900 rounded-full text-sm">
+                    Green
                   </span>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Favorite Decks:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Favorite Decks:
+                </h4>
                 <div className="space-y-2">
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Breya, Artificer Prodigy</p>
+                    <p className="font-medium text-indigo-400">
+                      Necrons – Szarekh, the Silent King
+                    </p>
                     <p className="text-sm text-gray-300">
-                      Commander deck focused on artifact synergies and combo finishes.
+                      Artifact-heavy Commander deck from Warhammer 40k, focused
+                      on recursion, synergy, and overwhelming board presence.
                     </p>
                   </div>
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Animar, Soul of Elements</p>
-                    <p className="text-sm text-gray-300">Creature-heavy deck that scales fast with +1/+1 counters.</p>
+                    <p className="font-medium text-indigo-400">
+                      Saheeli, the Gifted
+                    </p>
+                    <p className="text-sm text-gray-300">
+                      Spellslinger/artifact deck that ramps out big threats
+                      using Saheeli’s cost reduction and token generation.
+                    </p>
                   </div>
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Modern Tron</p>
+                    <p className="font-medium text-indigo-400">
+                      Mono-Blue (In Progress)
+                    </p>
                     <p className="text-sm text-gray-300">
-                      Classic "Urza Lands" deck for dropping huge colorless threats.
+                      Still in the works — a control-oriented mono-blue deck
+                      with a focus on counterspells, card draw, and tempo plays.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <blockquote className="border-l-4 border-teal-400 pl-4 italic text-gray-300">
-              "There's nothing like the feeling of drafting a perfect deck or pulling off a complex combo in Commander."
+              "There's nothing like the feeling of drafting a perfect deck or
+              pulling off a complex combo in Commander."
             </blockquote>
           </div>
         </HobbyCard>
@@ -266,69 +327,83 @@ function HobbiesSection() {
           <div className="space-y-4">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Experience:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Experience:
+                </h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-200">
                   <li>Playing for 5+ years</li>
-                  <li>Part of a 12-person tactical team</li>
+                  <li>Part of a 5-person tactical team</li>
                   <li>Participate in weekend-long scenario games</li>
                   <li>Focus on milsim (military simulation) events</li>
-                  <li>Custom gear builder and modifier</li>
+                  <li>Trying to learn to build custom gear</li>
                 </ul>
 
-                <h4 className="text-teal-200 font-semibold mt-4 mb-2">Loadout Styles:</h4>
+                <h4 className="text-teal-200 font-semibold mt-4 mb-2">
+                  Loadout Styles:
+                </h4>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">CQB Specialist</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Support Gunner</span>
-                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">Marksman</span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    CQB Specialist
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Grenadier
+                  </span>
+                  <span className="px-3 py-1 bg-gray-700 rounded-full text-sm">
+                    Marksman
+                  </span>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-teal-200 font-semibold mb-2">Favorite Gear:</h4>
+                <h4 className="text-teal-200 font-semibold mb-2">
+                  Favorite Gear:
+                </h4>
                 <div className="space-y-2">
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Primary: VFC Avalon Series</p>
+                    <p className="font-medium text-indigo-400">
+                      Primary: VFC Avalon Series
+                    </p>
                     <p className="text-sm text-gray-300">
-                      Customized with upgraded internals, GATE TITAN mosfet, and precision barrel.
+                      Customized with upgraded internals, GATE TITAN mosfet, and
+                      precision barrel.
                     </p>
                   </div>
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Secondary: Tokyo Marui G17</p>
-                    <p className="text-sm text-gray-300">Modified with lightweight slide and upgraded hop-up.</p>
+                    <p className="font-medium text-indigo-400">
+                      Secondary: Novritch SSX23
+                    </p>
+                    <p className="text-sm text-gray-300">
+                      Modified with surpressor & upgraded hop up
+                    </p>
                   </div>
                   <div className="bg-gray-800 p-3 rounded">
-                    <p className="font-medium text-indigo-400">Field Preferences</p>
+                    <p className="font-medium text-indigo-400">
+                      Field Preferences
+                    </p>
                     <p className="text-sm text-gray-300">
-                      Outdoor woodland and urban environments with mixed terrain for dynamic gameplay.
+                      Outdoor woodland and urban environments with mixed terrain
+                      for dynamic gameplay.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="relative h-40 md:h-60 w-full overflow-hidden rounded-lg">
-              <Image
-                src="/placeholder.svg?height=240&width=640"
-                alt="Airsoft tactical gear and loadout"
-                fill
-                className="object-cover"
-              />
             </div>
           </div>
         </HobbyCard>
       </div>
 
-      <motion.div className="mt-8 bg-gray-700 bg-opacity-50 p-6 rounded-xl" variants={itemVariants}>
-        <h3 className="text-xl font-bold text-indigo-400 mb-4">Why These Hobbies?</h3>
+      <motion.div
+        className="mt-8 bg-gray-700 bg-opacity-50 p-6 rounded-xl"
+        variants={itemVariants}
+      >
+        <h3 className="text-xl font-bold text-indigo-400 mb-4">
+          Why These Hobbies?
+        </h3>
         <p className="text-gray-200">
-          These hobbies complement my development work in surprising ways. D&D and MTG sharpen my strategic thinking and
-          creativity, video games keep me aware of UX/UI trends and interactive design principles, while airsoft builds
-          teamwork and quick decision-making skills. The problem-solving mindset I use as a developer transfers
-          perfectly to deck building, campaign planning, and tactical gameplay.
-        </p>
+        Several of my hobbies have overlapped significantly with skills I use in development. D&D and Magic the Gathering both share strategic elements of planning ahead to achieve an end result, whether that be preparing a campaign for my players or decimating an opponent with well-timed spell combinations. The video games that I play provide reference for what to do (and not do) with UI, while airsoft promotes rapid decision making and teamwork to solve problems... and not get shot by teenagers with better aim. Ultimately, it all helps to round out a suite of problem solving skills that I transfer to development frequently.        </p>
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
-export default memo(HobbiesSection)
-
+export default memo(HobbiesSection);

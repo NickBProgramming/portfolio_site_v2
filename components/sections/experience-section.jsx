@@ -139,11 +139,15 @@ function ExperienceSection() {
       location: "Remote / Englewood, CO",
       period: "Augest 2024 - Present",
       description: [
-        "Led the development of a microservices architecture that improved system scalability by 200%",
         "Assisted and facilitated the development and deployment of 4 cutting edge products",
         "Implemented CI/CD pipelines that reduced deployment time by 70%",
         "Mentored junior developers and conducted code reviews to maintain code quality",
         "Collaborated with product and design teams to deliver features that increased user engagement by 35%",
+        "Architected and developed the core API infrastructure powering a series of applications",
+        "Engineered scalable, fault-tolerant data ingestion pipelines to support high-volume data flows",
+        "Designed and optimized data models to ensure performance, reliability, and maintainability",
+        "Built a real-time data streaming system leveraging AWS services for low-latency processing",
+        "Integrated ingestion, processing, and API layers into a cohesive, high-performance data platform",
       ],
     },
     {
@@ -152,10 +156,11 @@ function ExperienceSection() {
       location: "Remote / Englewood, CO",
       period: "Sept 2021 - Aug 2024",
       description: [
-        "Developed and maintained multiple client-facing web applications using React and Node.js",
-        "Designed and implemented RESTful APIs that handled over 1M requests per day",
-        "Optimized database queries resulting in a 40% reduction in response time",
-        "Integrated third-party services and APIs to enhance application functionality",
+        "Created three new pages, eight forms, and six new features, while fixing over 40 major bugs across two applications, significantly improving functionality and user experience.",
+        "Integrated and maintained RESTful APIs for seamless backend communication.",
+        "Collaborated on the refactorization of multiple applications to optimize performance, reduce bugs, and streamline codebase",
+        "Utilized AWS services for scalable deployment and management of web applications.",
+        "Increased test coverage in multiple products by over 30%"
       ],
     },
     {
@@ -164,10 +169,11 @@ function ExperienceSection() {
       location: "Englewood, CO",
       period: "Jun 2021 - Sept 2021",
       description: [
-        "Built responsive user interfaces using React and modern CSS frameworks",
-        "Collaborated with designers to implement pixel-perfect designs",
-        "Improved website performance by implementing lazy loading and code splitting",
-        "Participated in agile development processes including daily standups and sprint planning",
+        "Resolved over 100 bugs in the application, significantly improving overall stability and user experience",
+        "Developed and deployed 3 interactive forms as part of key feature updates",
+        "Implemented 2 new customer-facing features from design to production",
+        "Collaborated directly with users to identify UI defects and delivered timely patches",
+        "Worked within an Agile team, contributing to sprint planning, daily standups, and continuous integration efforts",
       ],
     },
   ], [])

@@ -68,7 +68,7 @@ export default function Home() {
   </p>
   <div className="group group-hover:animate-jiggle">
   <a
-    href="/resume"
+    href="/resume.pdf"
     className="absolute bottom-4 right-4 bg-gray-700 text-white flex items-center justify-center w-10 h-10 hover:bg-gray-600 transition cursor-pointer z-10 group-hover:animate-jiggle"
     title="Resume"
     style={{
