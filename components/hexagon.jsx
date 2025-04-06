@@ -30,8 +30,8 @@ export default function Hexagon({
 
   // Position logic for hexagons, with responsiveness taken into account
   const position = {
-    posX: (size * 1.30) * x - 90,
-    posY: (size * 0.75) * y - 90
+    posX: (size * 1.30) * x - (size * 0.5),  // Adjusted position calculation to center properly
+    posY: (size * 0.75) * y - (size * 0.5)  // Adjusted position calculation to center properly
   };
 
   const handleClick = (e) => {
@@ -143,4 +143,3 @@ export default function Hexagon({
     </motion.div>
   );
 }
-

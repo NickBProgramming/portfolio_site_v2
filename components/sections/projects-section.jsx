@@ -53,6 +53,8 @@ const ProjectCard = memo(({ project, index, isHovered, onHover }) => (
             fill
             className="object-cover transition-transform duration-500"
             loading="lazy"
+            unoptimized
+
           />
         </motion.div>
       </div>
@@ -126,7 +128,7 @@ function ProjectsSection() {
       title: "AI Powered Web Scraping System",
       description: `Led as Scrum Leader and architected an AI-powered web scraping system using Snowflake, Pinecone, and embeddings. Ensured accurate data integration and system performance. Collaborated cross-functionally and mentored team members in Agile practices.`,
       technologies: ["Python", "OpenAI API", "Prompt Engineering", "Snowflake", "Selenium", "Pinecone"],
-      image: "/placeholder.svg",
+      image: "/images/project5.png",
     },
     {
       title: "Portfolio Site V1",

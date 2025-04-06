@@ -61,25 +61,25 @@ export default function Home() {
         <HexagonGrid />
       </div>
 
-      {/* Add a copyright disclaimer at the bottom */}
       <footer className="absolute bottom-0 left-0 right-0 text-center text-gray-500 p-4">
-  <p>
-    &copy; {new Date().getFullYear()} NickBProgramming. All rights reserved.
-  </p>
-  <div className="group group-hover:animate-jiggle">
-  <a
-    href="/resume.pdf"
-    className="absolute bottom-4 right-4 bg-gray-700 text-white flex items-center justify-center w-10 h-10 hover:bg-gray-600 transition cursor-pointer z-10 group-hover:animate-jiggle"
-    title="Resume"
-    style={{
-      clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-    }}
-  >
-    <FileText />
-  </a>
-  <div className="absolute bottom-10 right-3 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full border-2 border-white group-hover:animate-jiggle" style={{zIndex: 99}} />
-  <style>
-    {`
+        <div className="group group-hover:animate-jiggle">
+          <a
+            href="/resume.pdf"
+            className="absolute bottom-4 right-4 bg-gray-700 text-white flex items-center justify-center w-10 h-10 hover:bg-gray-600 transition cursor-pointer z-10 group-hover:animate-jiggle"
+            title="Resume"
+            style={{
+              clipPath:
+                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+            }}
+          >
+            <FileText />
+          </a>
+          <div
+            className="absolute bottom-10 right-3 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full border-2 border-white group-hover:animate-jiggle"
+            style={{ zIndex: 99 }}
+          />
+          <style>
+            {`
       .group:hover a {
         animation: jiggle 1s ease-in-out infinite;
       }
@@ -92,11 +92,9 @@ export default function Home() {
         100% { transform: rotate(0deg); }
       }
     `}
-  </style>
-</div>
-
-
-</footer>
+          </style>
+        </div>
+      </footer>
     </main>
   );
 }
