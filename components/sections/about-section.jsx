@@ -65,7 +65,7 @@ function AboutSection() {
           </motion.p>
 
           <motion.p className="text-lg" variants={itemVariants}>
-            When I'm not coding, you can find me airsofing in the mountains, playing D&D, or experimenting with
+            When I'm not coding, you can find me airsofting in the mountains, playing D&D, or experimenting with
             new cooking recipes.
           </motion.p>
         </div>

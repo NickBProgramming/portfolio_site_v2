@@ -148,7 +148,7 @@ function ProjectsSection() {
       title: "Python Socket-Based Chat Server",
       description: `Built a multi-threaded chat server in Python using sockets and the select module. Implemented client-server communication, authentication, message broadcasting, chat scripting, and a basic UI with error handling.`,
       technologies: ["Python", "Sockets", "Networking", "GUI"],
-      image: "/images/project4.png",
+      image: "/images/project41.png",
       github: "https://github.com/username/fitnesstracker",
       live: "https://fitness-demo.com",
     },
