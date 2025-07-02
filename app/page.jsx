@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import HexagonGrid from "@/components/hexagon-grid";
-import { FileText, FileUser } from "lucide-react";
+import { FileText } from "lucide-react";
 
 // Dynamically import components that use client-side features
 const HexagonBackground = dynamic(() =>
@@ -10,24 +10,22 @@ const HexagonBackground = dynamic(() =>
 );
 
 export default function Home() {
-  // Function to create a typewriter effect, revealing one character at a time
+  // Typewriter effect function
   function typewriterEffect(elementId, text, callback) {
     const element = document.getElementById(elementId);
-    let currentText = "";
+    if (!element) return;
     let i = 0;
 
-    // Function to create the typewriter effect
-    const interval = setInterval(() => {
-      currentText += text.charAt(i); // Add the next correct character
-      element.textContent = currentText; // Update the displayed text
+    function type() {
+      element.textContent = text.slice(0, i + 1);
       i++;
-
-      // Once we reach the end of the text, stop the interval and call the callback
-      if (i === text.length) {
-        clearInterval(interval);
-        if (callback) callback(); // Call the next typing effect (if provided)
+      if (i < text.length) {
+        setTimeout(type, 80);
+      } else if (callback) {
+        callback();
       }
-    }, 150); // Speed of typing effect (150ms per character)
+    }
+    type();
   }
 
   useEffect(() => {

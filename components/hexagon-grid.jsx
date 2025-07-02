@@ -17,10 +17,9 @@ const sections = [
   { id: "experience", label: "Experience", color: "from-yellow-500 to-yellow-700", x: 0.5, y: -1.5 },
   { id: "projects", label: "Projects", color: "from-blue-500 to-blue-700", x: 1, y: 0 },
   { id: "skills", label: "Skills", color: "from-green-500 to-green-700", x: 0.5, y: 1.5 },
-  // { id: "socials", label: "Find Me Online", color: "from-pink-500 to-pink-700", x: -0.5, y: 1.5 },
   { id: "hobbies", label: "Hobbies", color: "from-indigo-500 to-indigo-700", x: -0.5, y: 1.5 },
   { id: "contact", label: "Let's Connect", color: "from-red-500 to-red-700", x: -1, y: 0 },
-
+  // { id: "socials", label: "Find Me Online", color: "from-pink-500 to-pink-700", x: 0, y: 0 },
 ];
 
 
@@ -31,7 +30,6 @@ export default function HexagonGrid() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const requestRef = useRef()
-  const previousTimeRef = useRef()
   const frameSkip = useRef(0)
   const isMobile = useMediaQuery("(max-width: 768px)")
 
@@ -111,24 +109,16 @@ export default function HexagonGrid() {
   }, [])
 
   // Memoize section content rendering
-  const sectionContent = useMemo(() => {
-    switch (activeSection) {
-      case "about":
-        return <AboutSection />;
-      case "projects":
-        return <ProjectsSection />;
-      case "skills":
-        return <SkillsSection />;
-      case "experience":
-        return <ExperienceSection />;
-      case "contact":
-        return <ContactSection />;
-      case "hobbies":
-        return <HobbiesSection />;
-      default:
-        return null
-    }
-  }, [activeSection])
+  const sectionComponents = useMemo(() => ({
+    about: <AboutSection />,
+    projects: <ProjectsSection />,
+    skills: <SkillsSection />,
+    experience: <ExperienceSection />,
+    contact: <ContactSection />,
+    hobbies: <HobbiesSection />,
+  }), []);
+
+  const sectionContent = useMemo(() => sectionComponents[activeSection] || null, [activeSection, sectionComponents]);
 
   // Memoize parallax effect calculation
   const parallaxPosition = useMemo(() => {
@@ -181,6 +171,11 @@ export default function HexagonGrid() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              style={{
+                // change the scrollbar color on hover
+                scrollbarColor: "rgba(59, 130, 246, 0.5) rgba(31, 41, 55, 0.5)",
+                scrollbarWidth: "thin",
+              }}
               // Prevent clicks from propagating
               onClick={(e) => e.stopPropagation()}>
               <button

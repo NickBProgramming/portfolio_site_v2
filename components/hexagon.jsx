@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 export default function Hexagon({
-  id,
   label,
   color,
   x,
@@ -18,7 +17,6 @@ export default function Hexagon({
   const [ripple, setRipple] = useState({ active: false, x: 0, y: 0 });
 
   const colorStart = color.split("-")[1];
-  const colorEnd = color.split("-")[2];
 
   // Update size on resize
   useEffect(() => {

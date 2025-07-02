@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { ExternalLink, Github } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState, memo, useMemo } from "react"
 
@@ -141,16 +140,12 @@ function ProjectsSection() {
       description: `I developed a websites for local businesses, incorporating essential features such as email functionality for seamless communication and integration with secure payment systems to facilitate smooth online transactions. Each project was tailored to the specific needs of the business, ensuring a user-friendly experience and efficient back-end operations.`,
       technologies: ["HTML", "Tailwind CSS", "MaterialUI"],
       image: "/images/project3.png",
-      github: "https://github.com/username/fitnesstracker",
-      live: "https://fitness-demo.com",
     },
     {
       title: "Python Socket-Based Chat Server",
       description: `Built a multi-threaded chat server in Python using sockets and the select module. Implemented client-server communication, authentication, message broadcasting, chat scripting, and a basic UI with error handling.`,
       technologies: ["Python", "Sockets", "Networking", "GUI"],
       image: "/images/project41.png",
-      github: "https://github.com/username/fitnesstracker",
-      live: "https://fitness-demo.com",
     },
   ], [])
 
